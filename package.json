@@ -1,0 +1,57 @@
+{
+  "name": "admin",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "main": "npm-run-all --parallel s:*",
+    "s:base": "parcel base/index.html --out-dir .dist/base --cache-dir .cache/base -p 4000",
+    "group-booking": "run-p main p:group-booking",
+    "p:group-booking": "parcel group-booking/index.html --out-dir .dist/group-booking --cache-dir .cache/group-booking -p 5000",
+    "b:base": "parcel build base/index.html --out-dir dist/base --cache-dir .cache/base",
+    "build:group-booking": "run-p b:base b:group-booking",
+    "b:group-booking": "parcel build group-booking/index.html --out-dir dist/group-booking --cache-dir .cache/group-booking"
+  },
+  "author": "ibinz525",
+  "license": "ISC",
+  "description": "",
+  "devDependencies": {
+    "@vue/component-compiler-utils": "^3.2.0",
+    "npm-run-all": "^4.1.5",
+    "parcel-bundler": "^1.12.4",
+    "parcel-plugin-html-root-syntax": "0.0.3",
+    "parcel-plugin-static-files-copy": "^2.5.1",
+    "sass": "^1.32.6",
+    "vue-resource": "^1.5.2",
+    "vue-template-compiler": "^2.6.12"
+  },
+  "dependencies": {
+    "@tinymce/tinymce-vue": "^3.2.8",
+    "axios": "^0.21.1",
+    "common": "^0.2.5",
+    "dayjs": "^1.10.4",
+    "element-ui": "^2.15.1",
+    "js-md5": "^0.7.3",
+    "lodash": "^4.17.20",
+    "qiankun": "^2.4.0",
+    "qrcode": "^1.4.4",
+    "qrcodejs2": "0.0.2",
+    "store": "^2.0.12",
+    "vue": "^2.6.12",
+    "vue-amap": "^0.5.10",
+    "vue-hot-reload-api": "^2.3.4",
+    "vue-quill-editor": "^3.0.6",
+    "vue-router": "^3.5.1"
+  },
+  "alias": {
+    "@/common": "./common",
+    "@/css": "./css"
+  },
+  "staticFiles": {
+    "staticPath": [
+      {
+        "staticPath": "public",
+        "staticOutDir": "assets"
+      }
+    ]
+  }
+}
